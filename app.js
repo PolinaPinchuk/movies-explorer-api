@@ -19,12 +19,13 @@ const limiter = rateLimit({
   legacyHeaders: false,
 });
 
-// const allowedCors = [
+const allowedCors = [
 //   'https://',
 //   'http://',
-//   'http://localhost:3000',
-// ];
+  'http://localhost:3000',
+];
 
+// eslint-disable-next-line consistent-return
 app.use((req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
