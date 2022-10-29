@@ -42,21 +42,22 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(helmet());
 app.use(requestLogger);
 app.use(limiter);
-app.use(router);
-app.use(errorLogger);
-app.use(errors());
-app.use(handleErrors);
+app.use(helmet());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(MONGODB_ADDRESS, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+app.use(router);
+app.use(errorLogger);
+app.use(errors());
+app.use(handleErrors);
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
