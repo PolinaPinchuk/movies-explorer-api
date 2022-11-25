@@ -20,8 +20,8 @@ const limiter = rateLimit({
 });
 
 const allowedCors = [
-//   'https://',
-//   'http://',
+  'https://polina.movies.nomoredomains.club',
+  'http://polina.movies.nomoredomains.club',
   'http://localhost:3000',
 ];
 
